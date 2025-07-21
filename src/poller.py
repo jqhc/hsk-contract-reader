@@ -43,12 +43,3 @@ class Poller:
             self.db.set_last_height(contract, curr_block_height)
             print(f"set last height to {curr_block_height}")
 
-import time
-if __name__ == "__main__":
-    db = DB()
-    indexer = HSKIndexer()
-    poller = Poller(db, indexer, ["0x34B842D0AcF830134D44075DCbcE43Ba04286c12","0x80C080acd48ED66a35Ae8A24BC1198672215A9bD","0xf00A183Ae9DAA5ed969818E09fdd76a8e0B627E6"], 5)
-    while True:
-        poller.poll()
-        time.sleep(5)
-

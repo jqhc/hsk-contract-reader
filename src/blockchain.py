@@ -62,7 +62,7 @@ class HSKIndexer:
             for tx in data
             if tx["isError"] == "0"
             and (tx["to"] == contract_address or tx["contractAddress"] == contract_address)
-            # and tx.get("value") != "0" # filter out zero value transactions, such as grantRole or revokeRole
+            and tx.get("value") != "0" # filter out zero value transactions, such as grantRole or revokeRole
         ]
 
     def get_token_price_usd(self) -> float:

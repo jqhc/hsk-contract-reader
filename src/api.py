@@ -9,9 +9,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-POLLING_INTERVAL = int(os.getenv("POLLING_INTERVAL" "60"))
+POLLING_INTERVAL = int(os.getenv("POLLING_INTERVAL", "60"))
 API_URL = os.getenv("API_URL")
-CONTRACT_ADDRESSES = os.getenv("CONTRACT_ADDRESSES").split(",") if os.getenv
+CONTRACT_ADDRESSES = os.getenv("CONTRACT_ADDRESSES").split(",") if os.getenv("CONTRACT_ADDRESSES") else []
 
 app = Flask(__name__)
 CORS(app)
