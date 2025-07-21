@@ -4,11 +4,11 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE IF NOT EXISTS contract_calls (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     tx_hash TEXT NOT NULL UNIQUE,
-    block_height INTEGER NOT NULL
+    block_height INTEGER NOT NULL,
     contract_address TEXT NOT NULL,
     caller_address TEXT NOT NULL,
     amount REAL NOT NULL,
-    timestamp TEXT NOT NULL, -- ISO format
+    timestamp TEXT NOT NULL -- ISO format
 );
 
 -- Stores metadata about each tracked contract
