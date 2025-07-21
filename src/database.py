@@ -1,5 +1,5 @@
 import sqlite3
-from typing import Optional, List, Dict, Tuple
+from typing import Optional, List, Tuple
 from type_defs import Transaction, ContractMetrics
 import threading
 
@@ -48,7 +48,6 @@ class DB:
             ))
 
             self.conn.commit()
-            self.db_locked = False
 
     def insert_contract_calls(self, txs: List[Transaction]):
         """Inserts multiple contract calls into database and updates metrics."""
@@ -159,7 +158,7 @@ class DB:
             row = cur.fetchone()
 
             if not row:
-                return None, user_count
+                return None, 0
 
             metrics = {
                 "contract_address": contract_address,

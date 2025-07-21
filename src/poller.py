@@ -30,7 +30,7 @@ class Poller:
             print(f"last block height: {last_block_height}")
             if last_block_height + 1 >= curr_block_height:
                 print("No new blocks since last poll!")
-                return
+                continue
             
             # gets all transactions since last poll and adds to database
             transactions = self.indexer.get_transactions(contract, last_block_height + 1, curr_block_height)
