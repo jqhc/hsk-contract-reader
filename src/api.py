@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     try:
         # poller = Poller(db, indexer, CONTRACT_ADDRESSES, POLLING_INTERVAL)
-        app.run(host='0.0.0.0', port=5000, debug=True)
+        app.run(host='0.0.0.0', port=5000, use_reloader=False, debug=True)
     except Exception as e:
         print(f"Unexpected error occurred: {e}. API shutting down")
     finally:
